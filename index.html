@@ -46,69 +46,31 @@
         .profile-img-container { position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
         .profile-img-container img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 4/5; }
 
-        /* --- NEW: Neural Network Skill Map --- */
-        #neural-map-section { text-align: center; position: relative; }
-        .neural-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            height: 700px;
-            margin: 0 auto;
-            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-            border-radius: 24px;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            overflow: hidden;
-        }
-
-        /* The SVG Lines */
-        .neural-svg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        .neural-line {
-            stroke: var(--accent);
-            stroke-width: 0.5;
-            stroke-dasharray: 4 4;
-            opacity: 0.5;
-            animation: dash 20s linear infinite;
-        }
+        /* Neural Network Skill Map Section */
+        #neural-map-section { text-align: center; position: relative; padding-bottom: 2rem; }
+        .neural-container { position: relative; width: 100%; max-width: 800px; height: 700px; margin: 0 auto; background: radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%); border-radius: 24px; border: 1px solid rgba(99, 102, 241, 0.2); overflow: hidden; }
+        .neural-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .neural-line { stroke: var(--accent); stroke-width: 0.5; stroke-dasharray: 4 4; opacity: 0.5; animation: dash 20s linear infinite; }
         @keyframes dash { to { stroke-dashoffset: -100; } }
-
-        /* Center Profile */
-        .center-profile {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 140px; height: 140px;
-            border-radius: 50%;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 30px var(--accent-glow), inset 0 0 20px var(--accent-glow);
-            overflow: hidden;
-            z-index: 10;
-            animation: pulse 2s infinite;
-        }
+        .center-profile { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--accent); box-shadow: 0 0 30px var(--accent-glow), inset 0 0 20px var(--accent-glow); overflow: hidden; z-index: 10; animation: pulse 2s infinite; }
         .center-profile img { width: 100%; height: 100%; object-fit: cover; }
         @keyframes pulse { 0% { box-shadow: 0 0 20px var(--accent-glow), inset 0 0 20px var(--accent-glow); } 50% { box-shadow: 0 0 45px var(--accent), inset 0 0 30px var(--accent); } 100% { box-shadow: 0 0 20px var(--accent-glow), inset 0 0 20px var(--accent-glow); } }
-
-        /* Skill Nodes */
-        .skill-node {
-            position: absolute;
-            width: 65px; height: 65px;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--accent);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            color: white; cursor: pointer; z-index: 20;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
-            text-align: center; padding: 5px;
-        }
+        .skill-node { position: absolute; width: 65px; height: 65px; transform: translate(-50%, -50%); border-radius: 50%; background: var(--bg-card); border: 1px solid var(--accent); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; cursor: pointer; z-index: 20; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(99, 102, 241, 0.4); text-align: center; padding: 5px; }
         .skill-node:hover { transform: translate(-50%, -50%) scale(1.15); background: var(--accent); box-shadow: 0 0 25px var(--accent); }
         .skill-node i { font-size: 1.2rem; margin-bottom: 3px; }
         .skill-node span { font-size: 0.5rem; font-weight: 600; line-height: 1.1; }
+
+        /* --- NEW: Data Stream & Circuit Grid --- */
+        .data-stream { width: 4px; height: 80px; background: var(--accent); margin: 0 auto; box-shadow: 0 0 15px var(--accent); position: relative; }
+        .data-stream::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 10px solid var(--accent); }
+
+        .circuit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; max-width: 900px; margin: 0 auto; position: relative; }
+        .circuit-tag { background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(99, 102, 241, 0.4); padding: 1rem; border-radius: 8px; text-align: center; font-size: 0.9rem; font-weight: 600; color: var(--text-main); position: relative; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .circuit-tag:hover { border-color: var(--accent); background: rgba(99, 102, 241, 0.1); box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); transform: translateY(-3px); }
+        .circuit-tag i { color: var(--accent); font-size: 1rem; }
+        
+        /* Connecting lines for circuit grid */
+        .circuit-grid::before { content: ''; position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 2px; height: 20px; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
 
         /* Modal Popup */
         .skill-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; z-index: 9999; backdrop-filter: blur(8px); }
@@ -167,7 +129,6 @@
             .nav-links { display: none; }
             .main-image-wrapper { height: 450px; }
             
-            /* Mobile Neural Map Adjustments */
             .neural-container { height: 500px; }
             .center-profile { width: 100px; height: 100px; }
             .skill-node { width: 45px; height: 45px; }
@@ -246,62 +207,67 @@
         </div>
     </section>
 
-    <!-- NEW: Neural Network Skill Map (No hologram.png needed) -->
+    <!-- Neural Network Skill Map Section -->
     <section id="neural-map-section">
         <h2>Interactive Skill Map</h2>
-        <p style="text-align: center; margin-bottom: 2rem;">Tap the glowing nodes connected to my profile to explore my technical expertise.</p>
+        <p style="text-align: center; margin-bottom: 2rem;">Tap the glowing nodes connected to my profile to explore my core technical expertise.</p>
         
         <div class="neural-container">
-            <!-- SVG Lines Connecting Center to Nodes -->
             <svg class="neural-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <!-- Line to Top -->
                 <line x1="50" y1="50" x2="50" y2="10" class="neural-line" />
-                <!-- Line to Top Right -->
                 <line x1="50" y1="50" x2="73.5" y2="17.6" class="neural-line" />
-                <!-- Line to Right -->
                 <line x1="50" y1="50" x2="88" y2="37.6" class="neural-line" />
-                <!-- Line to Bottom Right -->
                 <line x1="50" y1="50" x2="88" y2="62.4" class="neural-line" />
-                <!-- Line to Bottom Right Inner -->
                 <line x1="50" y1="50" x2="73.5" y2="82.4" class="neural-line" />
-                <!-- Line to Bottom -->
                 <line x1="50" y1="50" x2="50" y2="90" class="neural-line" />
-                <!-- Line to Bottom Left Inner -->
                 <line x1="50" y1="50" x2="26.5" y2="82.4" class="neural-line" />
-                <!-- Line to Left -->
                 <line x1="50" y1="50" x2="12" y2="62.4" class="neural-line" />
-                <!-- Line to Top Left -->
                 <line x1="50" y1="50" x2="12" y2="37.6" class="neural-line" />
-                <!-- Line to Top Left Inner -->
                 <line x1="50" y1="50" x2="26.5" y2="17.6" class="neural-line" />
             </svg>
 
-            <!-- Center Profile Image -->
             <div class="center-profile">
                 <img src="profile.png" alt="Dhruv Pandey">
             </div>
 
-            <!-- Skill Nodes -->
-            <!-- 1. Top -->
             <div class="skill-node" style="top: 10%; left: 50%;" onclick="openSkill('ai')"><i class="fas fa-brain"></i><span>AI & ML</span></div>
-            <!-- 2. Top Right -->
             <div class="skill-node" style="top: 17.6%; left: 73.5%;" onclick="openSkill('cloud')"><i class="fas fa-cloud"></i><span>Cloud</span></div>
-            <!-- 3. Right -->
             <div class="skill-node" style="top: 37.6%; left: 88%;" onclick="openSkill('java')"><i class="fab fa-java"></i><span>Java</span></div>
-            <!-- 4. Bottom Right -->
             <div class="skill-node" style="top: 62.4%; left: 88%;" onclick="openSkill('python')"><i class="fab fa-python"></i><span>Python</span></div>
-            <!-- 5. Bottom Right Inner -->
             <div class="skill-node" style="top: 82.4%; left: 73.5%;" onclick="openSkill('cpp')"><i class="fas fa-code"></i><span>C/C++</span></div>
-            <!-- 6. Bottom -->
             <div class="skill-node" style="top: 90%; left: 50%;" onclick="openSkill('iot')"><i class="fas fa-microchip"></i><span>IoT & DB</span></div>
-            <!-- 7. Bottom Left Inner -->
             <div class="skill-node" style="top: 82.4%; left: 26.5%;" onclick="openSkill('docker')"><i class="fab fa-docker"></i><span>Docker</span></div>
-            <!-- 8. Left -->
             <div class="skill-node" style="top: 62.4%; left: 12%;" onclick="openSkill('git')"><i class="fab fa-github"></i><span>Git</span></div>
-            <!-- 9. Top Left -->
             <div class="skill-node" style="top: 37.6%; left: 12%;" onclick="openSkill('uiux')"><i class="fas fa-paint-brush"></i><span>UI/UX</span></div>
-            <!-- 10. Top Left Inner -->
             <div class="skill-node" style="top: 17.6%; left: 26.5%;" onclick="openSkill('hacking')"><i class="fas fa-user-secret"></i><span>Hacking</span></div>
+        </div>
+    </section>
+
+    <!-- NEW: Data Stream connecting Neural Map to Circuit Grid -->
+    <div class="data-stream"></div>
+
+    <!-- NEW: Full Technical Stack (Circuit Board Style) -->
+    <section id="skills-list" style="padding-top: 3rem;">
+        <h2 style="margin-bottom: 1rem;">Full Technical Arsenal</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Core computer science fundamentals and additional tools from my resume.</p>
+        
+        <div class="circuit-grid">
+            <div class="circuit-tag"><i class="fas fa-database"></i> DBMS & RDBMS</div>
+            <div class="circuit-tag"><i class="fas fa-sitemap"></i> Data Structures using C</div>
+            <div class="circuit-tag"><i class="fas fa-cogs"></i> Compiler Design</div>
+            <div class="circuit-tag"><i class="fas fa-project-diagram"></i> Software Engineering</div>
+            <div class="circuit-tag"><i class="fas fa-drafting-compass"></i> Unified Modeling Language (UML)</div>
+            <div class="circuit-tag"><i class="fas fa-table"></i> Advanced Excel</div>
+            <div class="circuit-tag"><i class="fas fa-network-wired"></i> Data Communication Network</div>
+            <div class="circuit-tag"><i class="fas fa-robot"></i> Machine Learning</div>
+        </div>
+
+        <h2 style="margin-top: 4rem; margin-bottom: 1.5rem;">Languages</h2>
+        <div class="circuit-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); max-width: 700px;">
+            <div class="circuit-tag"><i class="fas fa-language"></i> Hindi</div>
+            <div class="circuit-tag"><i class="fas fa-language"></i> English</div>
+            <div class="circuit-tag"><i class="fas fa-language"></i> German</div>
+            <div class="circuit-tag"><i class="fas fa-language"></i> Russian</div>
         </div>
     </section>
 
@@ -334,38 +300,6 @@
         <div class="card">
             <h3>10th Grade</h3>
             <h4>Sunbeam World School | 78.5%</h4>
-        </div>
-    </section>
-
-    <!-- Technical Skills & Languages Section -->
-    <section id="skills-list">
-        <h2>Technical Skills</h2>
-        <div class="skills-grid" style="justify-content: center; margin-bottom: 3rem;">
-            <span class="skill-tag">DBMS</span>
-            <span class="skill-tag">Data Structures using C</span>
-            <span class="skill-tag">Cloud Computing</span>
-            <span class="skill-tag">Ethical Hacking</span>
-            <span class="skill-tag">RDBMS</span>
-            <span class="skill-tag">C Programming</span>
-            <span class="skill-tag">C++</span>
-            <span class="skill-tag">IoT</span>
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Compiler Design</span>
-            <span class="skill-tag">AI</span>
-            <span class="skill-tag">Software Engineering</span>
-            <span class="skill-tag">UML</span>
-            <span class="skill-tag">Excel</span>
-            <span class="skill-tag">Data Communication Network</span>
-            <span class="skill-tag">Machine Learning</span>
-        </div>
-
-        <h2>Languages</h2>
-        <div class="skills-grid" style="justify-content: center;">
-            <span class="skill-tag">Hindi</span>
-            <span class="skill-tag">English</span>
-            <span class="skill-tag">German</span>
-            <span class="skill-tag">Russian</span>
         </div>
     </section>
 
