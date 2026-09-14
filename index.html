@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhruv Pandey | Cloud, AI & ML Engineer</title>
+    <title>Dhruv Pandey | Cloud, AI & ML Engineer and ETHICAL HACKER </title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
@@ -44,7 +44,7 @@
 
         /* --- Common --- */
         section { padding: 8rem 5% 4rem 5%; max-width: 1200px; margin: 0 auto; }
-        h2 { font-size: 2.5rem; margin-bottom: 2rem; font-weight: 800; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; font-weight: 800; text-align: center; }
         p { color: var(--text-muted); margin-bottom: 1.5rem; }
         .badge { background: rgba(99, 102, 241, 0.1); color: var(--accent); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
@@ -60,9 +60,13 @@
         .btn-outline { border: 2px solid var(--accent); color: var(--accent); margin-left: 10px; }
         .btn-outline:hover { background: var(--accent); color: white; }
         
-        /* --- Interactive Holographic Skill Map --- */
         .profile-img-container { position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
         .profile-img-container img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 4/5; }
+
+        /* --- Holographic Skill Map Section --- */
+        #holographic-showcase { text-align: center; }
+        .hologram-wrapper { max-width: 800px; margin: 0 auto; position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid var(--accent); }
+        .hologram-wrapper img { width: 100%; height: auto; display: block; object-fit: cover; }
         
         .skill-map-container { position: relative; width: 100%; height: 100%; }
         
@@ -80,22 +84,28 @@
 
         /* Floating Nodes */
         .skill-node {
-            position: absolute; width: 70px; height: 70px; border-radius: 50%;
-            background: rgba(30, 41, 59, 0.9); border: 1px solid var(--accent);
+            position: absolute; width: 65px; height: 65px; border-radius: 50%;
+            background: rgba(30, 41, 59, 0.95); border: 1px solid var(--accent);
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             color: white; cursor: pointer; z-index: 10; transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
             text-align: center; padding: 5px;
         }
         .skill-node:hover { transform: scale(1.15); background: var(--accent); box-shadow: 0 0 25px var(--accent); }
-        .skill-node i { font-size: 1.3rem; margin-bottom: 3px; }
-        .skill-node span { font-size: 0.55rem; font-weight: 600; line-height: 1.1; }
+        .skill-node i { font-size: 1.2rem; margin-bottom: 3px; }
+        .skill-node span { font-size: 0.5rem; font-weight: 600; line-height: 1.1; }
 
-        /* Node Positions */
-        .node-1 { top: 10%; left: 5%; }
-        .node-2 { top: 15%; right: 5%; }
-        .node-3 { bottom: 20%; left: 10%; }
-        .node-4 { bottom: 10%; right: 10%; }
+        /* --- 10 Node Positions (Circular Orbit) --- */
+        .node-1  { top: 5%; left: 25%; }
+        .node-2  { top: 5%; right: 25%; }
+        .node-3  { top: 25%; left: 5%; }
+        .node-4  { top: 25%; right: 5%; }
+        .node-5  { top: 50%; left: 2%; transform: translateY(-50%); }
+        .node-6  { top: 50%; right: 2%; transform: translateY(-50%); }
+        .node-7  { bottom: 25%; left: 5%; }
+        .node-8  { bottom: 25%; right: 5%; }
+        .node-9  { bottom: 5%; left: 25%; }
+        .node-10 { bottom: 5%; right: 25%; }
 
         /* Modal Popup */
         .skill-modal {
@@ -148,7 +158,7 @@
 
         /* Right: Sticky Sidebar */
         .product-sidebar { position: sticky; top: 100px; align-self: start; }
-        .product-sidebar h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .product-sidebar h2 { font-size: 2rem; margin-bottom: 0.5rem; text-align: left; }
         .product-sidebar h4 { color: var(--text-muted); font-size: 1rem; font-weight: 400; margin-bottom: 2rem; }
         
         .feature-list { list-style: none; margin-bottom: 2rem; }
@@ -160,7 +170,7 @@
         .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .skill-tag { background: #27272a; border: 1px solid #3f3f46; color: white; padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500; }
 
-        /* --- Experience & Projects --- */
+        /* --- Experience & Projects & Certifications --- */
         .card { background: var(--bg-card); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s; }
         .card:hover { transform: translateY(-5px); border-color: var(--accent); }
         .card h3 { font-size: 1.3rem; margin-bottom: 0.3rem; }
@@ -183,11 +193,12 @@
             .product-sidebar { position: static; }
             .nav-links { display: none; }
             .main-image-wrapper { height: 450px; }
-            .skill-node { width: 55px; height: 55px; }
-            .skill-node i { font-size: 1rem; }
-            .skill-node span { font-size: 0.45rem; }
-            .skill-hub { width: 90px; height: 90px; font-size: 0.9rem; }
-            .skill-hub span { font-size: 0.45rem; }
+            
+            .skill-node { width: 50px; height: 50px; padding: 3px; }
+            .skill-node i { font-size: 0.9rem; margin-bottom: 1px; }
+            .skill-node span { font-size: 0.4rem; }
+            .skill-hub { width: 80px; height: 80px; font-size: 0.8rem; }
+            .skill-hub span { font-size: 0.4rem; }
         }
     </style>
 </head>
@@ -199,55 +210,31 @@
         <div class="nav-links">
             <a href="#hero">Home</a>
             <a href="#product-viewer">3D Showcase</a>
+            <a href="#holographic-showcase">Skill Map</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section with Holographic Skill Map -->
+    <!-- Hero Section -->
     <section id="hero">
         <div class="hero-text">
             <div class="badge">Available for Work</div>
             <h1>Hi, I'm <span>Dhruv Pandey</span></h1>
             <h3>Cloud, AI & ML Engineer</h3>
-            <p>I build modern, interactive web applications and explore the boundaries of AI and 3D web technologies. Tap the glowing nodes to explore my skills!</p>
+            <p>I build modern, interactive web applications and explore the boundaries of AI and 3D web technologies.</p>
             <a href="#contact" class="btn btn-primary">Contact Me</a>
             <a href="https://github.com/G1pro108" target="_blank" class="btn btn-outline">GitHub</a>
         </div>
         
         <div class="profile-img-container">
-            <div class="skill-map-container">
-                <img src="profile.png" alt="Dhruv Pandey">
-                
-                <!-- Central Hub -->
-                <div class="skill-hub">
-                    SKILLS
-                    <span>TAP TO EXPLORE</span>
-                </div>
-
-                <!-- Floating Nodes -->
-                <div class="skill-node node-1" onclick="openSkill('cloud')">
-                    <i class="fas fa-cloud"></i>
-                    <span>Cloud</span>
-                </div>
-                <div class="skill-node node-2" onclick="openSkill('ai')">
-                    <i class="fas fa-brain"></i>
-                    <span>AI & ML</span>
-                </div>
-                <div class="skill-node node-3" onclick="openSkill('code')">
-                    <i class="fas fa-code"></i>
-                    <span>Python</span>
-                </div>
-                <div class="skill-node node-4" onclick="openSkill('iot')">
-                    <i class="fas fa-microchip"></i>
-                    <span>IoT & DB</span>
-                </div>
-            </div>
+            <img src="profile.png" alt="Dhruv Pandey">
         </div>
     </section>
 
-    <!-- Amazon-Style Product Viewer -->
+    <!-- Amazon-Style Product Viewer (360 Viewer) -->
     <section id="product-viewer">
         <div class="gallery-container">
             <div class="main-image-wrapper" id="drag-container">
@@ -280,7 +267,7 @@
             <div class="skills-highlight">
                 <h3>Technology Stack Used</h3>
                 <div class="skills-grid">
-                    <span class="skill-tag">Cloud Services (AWS/Azure/GCP)</span>
+                    <span class="skill-tag">Cloud Services</span>
                     <span class="skill-tag">AI & Machine Learning</span>
                     <span class="skill-tag">Python & Java</span>
                     <span class="skill-tag">IoT & DBMS</span>
@@ -291,7 +278,36 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Holographic Skill Map Section -->
+    <section id="holographic-showcase">
+        <h2>Interactive Skill Map</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Tap the glowing nodes on the image to explore my technical expertise.</p>
+        
+        <div class="hologram-wrapper">
+            <div class="skill-map-container">
+                <img src="hologram.png" alt="Holographic Skill Map">
+                
+                <div class="skill-hub">
+                    SKILLS
+                    <span>TAP TO EXPLORE</span>
+                </div>
+
+                <!-- 10 Skills Nodes -->
+                <div class="skill-node node-1" onclick="openSkill('ai')"><i class="fas fa-brain"></i><span>AI & ML</span></div>
+                <div class="skill-node node-2" onclick="openSkill('cloud')"><i class="fas fa-cloud"></i><span>Cloud</span></div>
+                <div class="skill-node node-3" onclick="openSkill('java')"><i class="fab fa-java"></i><span>Java</span></div>
+                <div class="skill-node node-4" onclick="openSkill('python')"><i class="fab fa-python"></i><span>Python</span></div>
+                <div class="skill-node node-5" onclick="openSkill('cpp')"><i class="fas fa-code"></i><span>C/C++</span></div>
+                <div class="skill-node node-6" onclick="openSkill('iot')"><i class="fas fa-microchip"></i><span>IoT & DB</span></div>
+                <div class="skill-node node-7" onclick="openSkill('docker')"><i class="fab fa-docker"></i><span>Docker</span></div>
+                <div class="skill-node node-8" onclick="openSkill('git')"><i class="fab fa-github"></i><span>Git</span></div>
+                <div class="skill-node node-9" onclick="openSkill('uiux')"><i class="fas fa-paint-brush"></i><span>UI/UX</span></div>
+                <div class="skill-node node-10" onclick="openSkill('hacking')"><i class="fas fa-user-secret"></i><span>Hacking</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Updated with 24-week & AWS/GCP) -->
     <section id="experience">
         <h2>Experience & Education</h2>
         
@@ -305,11 +321,28 @@
             <h3>Cloud Technology Intern</h3>
             <h4>Self-Employed | 2023 - Present</h4>
             <ul>
-                <li>Completed a 12-week internship in cloud technology across different platforms.</li>
+                <li>Completed a 24-week intensive internship in cloud technology across different platforms.</li>
                 <li>Designed and developed responsive cloud services and solutions.</li>
                 <li>Implemented modern IoT and AI/ML principles to improve projects and models.</li>
-                <li>Worked extensively on AWS and GCP cloud platforms.</li>
+                <li>Worked extensively on AWS and Google Cloud Platform (GCP).</li>
             </ul>
+        </div>
+    </section>
+
+    <!-- Certifications Section (New) -->
+    <section id="certifications">
+        <h2>Certifications</h2>
+        
+        <div class="card">
+            <h3>NPTEL Certification in Cloud Computing</h3>
+            <h4>IIT Kharagpur | Issued by NPTEL</h4>
+            <p>Comprehensive certification covering cloud architecture, virtualization, and cloud service models from a premier Indian Institute of Technology.</p>
+        </div>
+
+        <div class="card">
+            <h3>NPTEL Certification in Ethical Hacking</h3>
+            <h4>IIT Kharagpur | Issued by NPTEL</h4>
+            <p>Certification focusing on cybersecurity, penetration testing, and vulnerability assessment methodologies.</p>
         </div>
     </section>
 
@@ -358,22 +391,16 @@
     <script>
         // --- 1. Skill Modal Logic ---
         const skillData = {
-            cloud: { 
-                title: "Cloud Services", 
-                desc: "Experienced in AWS, Azure, and GCP. Skilled in designing scalable cloud architectures, deployment pipelines, and cloud-native solutions." 
-            },
-            ai: { 
-                title: "AI & Machine Learning", 
-                desc: "Proficient in building predictive models, data analysis, and implementing ML algorithms using Python. Experienced with frameworks like TensorFlow and PyTorch." 
-            },
-            code: { 
-                title: "Python & Java", 
-                desc: "Strong programming foundation in Python and Java for backend development, automation scripts, and software engineering projects." 
-            },
-            iot: { 
-                title: "IoT & DBMS", 
-                desc: "Skilled in connecting hardware devices to the internet, sensor data processing, and managing databases (SQL & NoSQL) for IoT ecosystems." 
-            }
+            ai: { title: "AI & Machine Learning", desc: "Proficient in building predictive models, data analysis, and implementing ML algorithms using Python. Experienced with frameworks like TensorFlow and PyTorch." },
+            cloud: { title: "Cloud Services (AWS/Azure/GCP)", desc: "Experienced in AWS, Azure, and GCP. Skilled in designing scalable cloud architectures, deployment pipelines, and cloud-native solutions." },
+            java: { title: "Java", desc: "Strong object-oriented programming foundation in Java. Experienced in building robust backend systems and enterprise applications." },
+            python: { title: "Python", desc: "Advanced Python programming for backend development, automation scripts, data science, and AI model training." },
+            cpp: { title: "C & C++", desc: "Deep understanding of low-level memory management, data structures, and algorithms using C and C++. Ideal for performance-critical applications." },
+            iot: { title: "IoT & DBMS", desc: "Skilled in connecting hardware devices to the internet, sensor data processing, and managing databases (SQL & NoSQL) for IoT ecosystems." },
+            docker: { title: "Docker Containerization", desc: "Experienced in containerizing applications using Docker for consistent development, testing, and deployment environments." },
+            git: { title: "Git & GitHub", desc: "Proficient in version control using Git. Experienced in collaborative workflows, branching strategies, and hosting projects on GitHub Pages." },
+            uiux: { title: "UI/UX Design", desc: "Skilled in designing intuitive, user-centric interfaces. Experienced in wireframing, prototyping, and implementing responsive web designs." },
+            hacking: { title: "Ethical Hacking", desc: "Knowledgeable in cybersecurity principles, vulnerability assessment, and penetration testing methodologies to secure systems and networks." }
         };
 
         function openSkill(key) {
@@ -387,7 +414,6 @@
             document.getElementById('skillModal').classList.remove('show');
         }
 
-        // Close modal if user clicks outside the box
         window.onclick = function(event) {
             const modal = document.getElementById('skillModal');
             if (event.target === modal) {
@@ -410,7 +436,6 @@
             thumbElement.classList.add('active');
         }
 
-        // Drag Logic (Mouse)
         container.addEventListener('mousedown', (e) => { isDragging = true; startX = e.clientX; });
         window.addEventListener('mouseup', () => { isDragging = false; });
         container.addEventListener('mousemove', (e) => {
@@ -425,7 +450,6 @@
             }
         });
 
-        // Drag Logic (Touch for Mobile)
         container.addEventListener('touchstart', (e) => { isDragging = true; startX = e.touches[0].clientX; });
         container.addEventListener('touchend', () => { isDragging = false; });
         container.addEventListener('touchmove', (e) => {
