@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dhruv Pandey | Cloud, AI & ML Engineer</title>
     
-    <!-- Social Media Preview Tags -->
     <meta name="description" content="Interactive 3D Portfolio of Dhruv Pandey, Cloud, AI & ML Engineer.">
     <meta property="og:title" content="Dhruv Pandey | 3D Portfolio">
     <meta property="og:description" content="Touch and drag my 3D avatar and explore my interactive skill map.">
@@ -45,9 +44,23 @@
         }
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-main); }
         .logo span { color: var(--accent); }
-        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links { display: flex; gap: 1rem; align-items: center; }
         .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s; font-size: 0.85rem; }
         .nav-links a:hover { color: var(--text-main); }
+        
+        /* Google Translate Widget Styling */
+        #google_translate_element { margin-left: 10px; }
+        #google_translate_element .goog-te-gadget-simple {
+            background-color: rgba(255,255,255,0.1) !important;
+            border: 1px solid rgba(255,255,255,0.2) !important;
+            border-radius: 6px !important;
+            padding: 4px 8px !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.8rem !important;
+        }
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span { color: white !important; }
+        #google_translate_element .goog-te-gadget-simple img { display: none; } /* Hide the ugly Google logo */
+        .goog-te-banner-frame { display: none !important; } /* Hide the top frame */
 
         /* --- Common --- */
         section { padding: 8rem 5% 4rem 5%; max-width: 1200px; margin: 0 auto; }
@@ -173,7 +186,11 @@
             <a href="#projects">Projects</a>
             <a href="#certifications">Certifications</a>
             <a href="#contact">Contact</a>
-            <a href="resume.pdf" target="_blank">Resume</a> <!-- THIS IS THE RESUME TAB -->
+            
+            <!-- GLOBAL TRANSLATOR GOES HERE -->
+            <div id="google_translate_element"></div>
+
+            <a href="resume.pdf" target="_blank">Resume</a>
         </div>
     </nav>
 
@@ -188,7 +205,7 @@
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Contact Me</a>
                 <a href="https://github.com/G1pro108" target="_blank" class="btn btn-outline">GitHub</a>
-                <a href="resume.pdf" target="_blank" class="btn btn-primary" style="background: #27272a; box-shadow: none;">Download Resume</a> <!-- THIS IS THE DOWNLOAD BUTTON -->
+                <a href="resume.pdf" target="_blank" class="btn btn-primary" style="background: #27272a; box-shadow: none;">Download Resume</a>
             </div>
         </div>
         
@@ -293,7 +310,7 @@
 
         <h2 style="margin-top: 4rem; margin-bottom: 1.5rem;">Languages</h2>
         <p style="text-align: center; margin-bottom: 1.5rem; font-size: 0.9rem;">Tap a language to see a greeting!</p>
-        <!-- THESE ARE THE LANGUAGE BUTTONS WITH POPUPS -->
+        
         <div class="circuit-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); max-width: 700px;">
             <div class="circuit-tag" onclick="openLanguage('hindi')"><i class="fas fa-language"></i> Hindi</div>
             <div class="circuit-tag" onclick="openLanguage('english')"><i class="fas fa-language"></i> English</div>
@@ -393,19 +410,28 @@
         </div>
     </div>
 
-    <!-- Language Description Modal -->
-    <div class="skill-modal" id="languageModal">
-        <div class="modal-content" style="max-width: 350px;">
+    <!-- Language Description Modal (Added translate="no" so Google Translate doesn't ruin the specific greetings) -->
+    <div class="skill-modal" id="languageModal" translate="no">
+        <div class="modal-content" style="max-width: 400px;">
             <span class="close-modal" onclick="closeLanguage()">&times;</span>
             <div style="margin-bottom: 1.5rem;">
                 <img src="profile.png" alt="Dhruv Pandey" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 0 20px var(--accent-glow);">
             </div>
             <h3 id="langGreeting" style="font-size: 1.8rem; margin-bottom: 0.5rem;"></h3>
-            <p id="langName" style="font-size: 1.1rem; color: var(--text-muted);"></p>
+            <p id="langName" style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 1rem;"></p>
+            <p id="langFarewell" style="font-size: 1rem; color: var(--text-muted); font-style: italic;"></p>
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- JavaScript for Modals and Viewer -->
     <script>
         // --- 1. Skill Modal Logic ---
         const skillData = {
@@ -429,18 +455,35 @@
         }
         function closeSkill() { document.getElementById('skillModal').classList.remove('show'); }
 
-        // --- 2. Language Modal Logic ---
+        // --- 2. Language Modal Logic (Your Personal Skills) ---
         const languageData = {
-            hindi: { greeting: "नमस्ते!", name: "मेरा नाम ध्रुव पांडेय है।" },
-            english: { greeting: "Hello!", name: "My name is Dhruv Pandey." },
-            german: { greeting: "Hallo!", name: "Mein Name ist Dhruv Pandey." },
-            russian: { greeting: "Привет!", name: "Меня зовут Дхрув Пандей." }
+            hindi: { 
+                greeting: "नमस्ते!", 
+                name: "मेरा नाम ध्रुव पांडेय है।", 
+                farewell: "आपसे मिलकर अच्छा लगा!" 
+            },
+            english: { 
+                greeting: "Hello!", 
+                name: "My name is Dhruv Pandey.", 
+                farewell: "Nice to meet you!" 
+            },
+            german: { 
+                greeting: "Hallo!", 
+                name: "Mein Name ist Dhruv Pandey.", 
+                farewell: "Schön, Sie kennenzulernen!" 
+            },
+            russian: { 
+                greeting: "Привет!", 
+                name: "Меня зовут Дхрув Пандей.", 
+                farewell: "Приятно познакомиться!" 
+            }
         };
 
         function openLanguage(lang) {
             const data = languageData[lang];
             document.getElementById('langGreeting').innerText = data.greeting;
             document.getElementById('langName').innerText = data.name;
+            document.getElementById('langFarewell').innerText = data.farewell;
             document.getElementById('languageModal').classList.add('show');
         }
         function closeLanguage() { document.getElementById('languageModal').classList.remove('show'); }
