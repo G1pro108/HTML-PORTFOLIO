@@ -1,12 +1,10 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhruv Pandey | Cloud, AI & ML Engineer </title>
-    <!-- Google Fonts -->
+    <title>Dhruv Pandey | Cloud, AI & ML Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -18,84 +16,53 @@
             --accent: #6366f1;
             --accent-glow: rgba(99, 102, 241, 0.4);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* --- Navigation --- */
-        nav {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(9, 9, 11, 0.8);
-            backdrop-filter: blur(12px);
-            padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(9, 9, 11, 0.8); backdrop-filter: blur(12px); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-main); }
         .logo span { color: var(--accent); }
         .nav-links { display: flex; gap: 2rem; }
         .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s; font-size: 0.9rem; }
         .nav-links a:hover { color: var(--text-main); }
 
-        /* --- Common --- */
+        /* Common */
         section { padding: 8rem 5% 4rem 5%; max-width: 1200px; margin: 0 auto; }
         h2 { font-size: 2.5rem; margin-bottom: 2rem; font-weight: 800; text-align: center; }
         p { color: var(--text-muted); margin-bottom: 1.5rem; }
         .badge { background: rgba(99, 102, 241, 0.1); color: var(--accent); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- Hero Section --- */
+        /* Hero Section (Clean Profile Photo) */
         #hero { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; min-height: 100vh; padding-top: 6rem; }
         .hero-text h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -1px; }
         .hero-text h1 span { color: var(--accent); }
         .hero-text h3 { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem; font-weight: 400; }
-        
         .btn { padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; display: inline-block; }
         .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 20px var(--accent-glow); }
         .btn-primary:hover { background: #4f46e5; transform: translateY(-2px); }
         .btn-outline { border: 2px solid var(--accent); color: var(--accent); margin-left: 10px; }
         .btn-outline:hover { background: var(--accent); color: white; }
-        
         .profile-img-container { position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
         .profile-img-container img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 4/5; }
 
-        /* --- Holographic Skill Map Section --- */
+        /* Holographic Skill Map Section */
         #holographic-showcase { text-align: center; }
         .hologram-wrapper { max-width: 800px; margin: 0 auto; position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid var(--accent); }
         .hologram-wrapper img { width: 100%; height: auto; display: block; object-fit: cover; }
-        
         .skill-map-container { position: relative; width: 100%; height: 100%; }
         
         /* Central Hub */
-        .skill-hub {
-            position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%);
-            width: 110px; height: 110px; border-radius: 50%;
-            background: rgba(9, 9, 11, 0.85); border: 2px solid var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow), inset 0 0 20px var(--accent-glow);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            color: white; font-weight: 800; z-index: 5; animation: pulse 2s infinite;
-            font-size: 1.1rem; letter-spacing: 1px;
-        }
+        .skill-hub { position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%); width: 110px; height: 110px; border-radius: 50%; background: rgba(9, 9, 11, 0.85); border: 2px solid var(--accent); box-shadow: 0 0 20px var(--accent-glow), inset 0 0 20px var(--accent-glow); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 800; z-index: 5; animation: pulse 2s infinite; font-size: 1.1rem; letter-spacing: 1px; }
         .skill-hub span { font-size: 0.55rem; color: var(--accent); letter-spacing: 1px; margin-top: 3px; }
 
-        /* Floating Nodes */
-        .skill-node {
-            position: absolute; width: 65px; height: 65px; border-radius: 50%;
-            background: rgba(30, 41, 59, 0.95); border: 1px solid var(--accent);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            color: white; cursor: pointer; z-index: 10; transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
-            text-align: center; padding: 5px;
-        }
+        /* Floating Nodes (10 Skills) */
+        .skill-node { position: absolute; width: 65px; height: 65px; border-radius: 50%; background: rgba(30, 41, 59, 0.95); border: 1px solid var(--accent); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; cursor: pointer; z-index: 10; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(99, 102, 241, 0.4); text-align: center; padding: 5px; }
         .skill-node:hover { transform: scale(1.15); background: var(--accent); box-shadow: 0 0 25px var(--accent); }
         .skill-node i { font-size: 1.2rem; margin-bottom: 3px; }
         .skill-node span { font-size: 0.5rem; font-weight: 600; line-height: 1.1; }
 
-        /* --- 10 Node Positions (Circular Orbit) --- */
+        /* 10 Node Positions (Circular Orbit) */
         .node-1  { top: 5%; left: 25%; }
         .node-2  { top: 5%; right: 25%; }
         .node-3  { top: 25%; left: 5%; }
@@ -108,69 +75,41 @@
         .node-10 { bottom: 5%; right: 25%; }
 
         /* Modal Popup */
-        .skill-modal {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
-            z-index: 9999; backdrop-filter: blur(8px);
-        }
+        .skill-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; z-index: 9999; backdrop-filter: blur(8px); }
         .skill-modal.show { display: flex; }
-        .modal-content {
-            background: var(--bg-card); border: 1px solid var(--accent);
-            padding: 2.5rem; border-radius: 16px; max-width: 450px; width: 90%;
-            text-align: center; box-shadow: 0 0 40px var(--accent-glow);
-            position: relative; animation: slideUp 0.3s ease;
-        }
+        .modal-content { background: var(--bg-card); border: 1px solid var(--accent); padding: 2.5rem; border-radius: 16px; max-width: 450px; width: 90%; text-align: center; box-shadow: 0 0 40px var(--accent-glow); position: relative; animation: slideUp 0.3s ease; }
         .modal-content h3 { color: var(--accent); margin-bottom: 1rem; font-size: 1.5rem; }
         .modal-content p { margin-bottom: 0; font-size: 0.95rem; color: var(--text-main); }
-        .close-modal {
-            position: absolute; top: 15px; right: 20px;
-            font-size: 1.8rem; color: var(--text-muted); cursor: pointer; line-height: 1;
-        }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; color: var(--text-muted); cursor: pointer; line-height: 1; }
         .close-modal:hover { color: white; }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 20px var(--accent-glow), inset 0 0 20px var(--accent-glow); }
-            50% { box-shadow: 0 0 40px var(--accent), inset 0 0 30px var(--accent); }
-            100% { box-shadow: 0 0 20px var(--accent-glow), inset 0 0 20px var(--accent-glow); }
-        }
+        @keyframes pulse { 0% { box-shadow: 0 0 20px var(--accent-glow), inset 0 0 20px var(--accent-glow); } 50% { box-shadow: 0 0 40px var(--accent), inset 0 0 30px var(--accent); } 100% { box-shadow: 0 0 20px var(--accent-glow), inset 0 0 20px var(--accent-glow); } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- Amazon-Style Product Viewer --- */
+        /* Amazon-Style 360 Viewer */
         #product-viewer { background: var(--bg-card); border-radius: 24px; padding: 3rem; margin: 4rem auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; border: 1px solid rgba(255,255,255,0.05); }
-        
         .gallery-container { display: flex; flex-direction: column; gap: 1rem; }
-        
-        .main-image-wrapper { 
-            position: relative; background: #000; border-radius: 16px; overflow: hidden; 
-            cursor: grab; height: 600px; border: 1px solid rgba(255,255,255,0.1); 
-        }
+        .main-image-wrapper { position: relative; background: #000; border-radius: 16px; overflow: hidden; cursor: grab; height: 600px; border: 1px solid rgba(255,255,255,0.1); }
         .main-image-wrapper:active { cursor: grabbing; }
-        .main-image-wrapper img { 
-            width: 100%; height: 100%; object-fit: contain; object-position: center top; 
-            transition: opacity 0.1s; pointer-events: none; 
-        }
-        
+        .main-image-wrapper img { width: 100%; height: 100%; object-fit: contain; object-position: center top; transition: opacity 0.1s; pointer-events: none; }
         .drag-hint { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; color: white; pointer-events: none; display: flex; align-items: center; gap: 8px; }
-        
         .thumbnail-strip { display: flex; gap: 10px; justify-content: center; }
         .thumbnail-strip img { width: 70px; height: 70px; border-radius: 8px; cursor: pointer; opacity: 0.5; transition: all 0.3s; border: 2px solid transparent; object-fit: contain; }
         .thumbnail-strip img:hover, .thumbnail-strip img.active { opacity: 1; border-color: var(--accent); }
-
+        
         /* Right: Sticky Sidebar */
         .product-sidebar { position: sticky; top: 100px; align-self: start; }
         .product-sidebar h2 { font-size: 2rem; margin-bottom: 0.5rem; text-align: left; }
         .product-sidebar h4 { color: var(--text-muted); font-size: 1rem; font-weight: 400; margin-bottom: 2rem; }
-        
         .feature-list { list-style: none; margin-bottom: 2rem; }
         .feature-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem; color: var(--text-muted); font-size: 0.95rem; }
         .feature-list li::before { content: "✓"; color: var(--accent); font-weight: bold; }
-        
         .skills-highlight { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
         .skills-highlight h3 { font-size: 1.1rem; margin-bottom: 1rem; }
         .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .skill-tag { background: #27272a; border: 1px solid #3f3f46; color: white; padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500; }
 
-        /* --- Experience, Projects & Certifications --- */
+        /* Experience, Projects & Certifications */
         .card { background: var(--bg-card); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s; }
         .card:hover { transform: translateY(-5px); border-color: var(--accent); }
         .card h3 { font-size: 1.3rem; margin-bottom: 0.3rem; }
@@ -178,13 +117,13 @@
         .card ul { list-style-position: inside; color: var(--text-muted); margin-bottom: 1rem; }
         .card ul li { margin-bottom: 0.5rem; }
 
-        /* --- Contact --- */
+        /* Contact */
         #contact { text-align: center; padding-bottom: 8rem; }
         .social-links { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; }
         .social-links a { color: var(--text-main); font-size: 1.2rem; text-decoration: none; transition: color 0.3s; font-weight: 600; }
         .social-links a:hover { color: var(--accent); }
 
-        /* --- Mobile --- */
+        /* Mobile */
         @media (max-width: 900px) {
             #hero { grid-template-columns: 1fr; text-align: center; padding-top: 8rem; }
             .hero-text h1 { font-size: 2.8rem; }
@@ -193,7 +132,6 @@
             .product-sidebar { position: static; }
             .nav-links { display: none; }
             .main-image-wrapper { height: 450px; }
-            
             .skill-node { width: 50px; height: 50px; padding: 3px; }
             .skill-node i { font-size: 0.9rem; margin-bottom: 1px; }
             .skill-node span { font-size: 0.4rem; }
@@ -204,7 +142,6 @@
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav>
         <div class="logo">Dhruv<span>.dev</span></div>
         <div class="nav-links">
@@ -218,13 +155,13 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Clean Profile Photo) -->
+    <!-- Hero Section -->
     <section id="hero">
         <div class="hero-text">
             <div class="badge">Available for Work</div>
             <h1>Hi, I'm <span>Dhruv Pandey</span></h1>
             <h3>Cloud, AI & ML Engineer</h3>
-            <p>I build modern, interactive web applications and explore the boundaries of AI and 3D web technologies.</p>
+            <p>To work in an environment which encourages me to succeed and grow professionally where I can utilize my skills and knowledge appropriately.</p>
             <a href="#contact" class="btn btn-primary">Contact Me</a>
             <a href="https://github.com/G1pro108" target="_blank" class="btn btn-outline">GitHub</a>
         </div>
@@ -239,11 +176,8 @@
         <div class="gallery-container">
             <div class="main-image-wrapper" id="drag-container">
                 <img src="front.jpg" id="main-display" alt="3D Avatar 360 View">
-                <div class="drag-hint">
-                    <span>↔</span> Drag to rotate 360°
-                </div>
+                <div class="drag-hint"><span>↔</span> Drag to rotate 360°</div>
             </div>
-            
             <div class="thumbnail-strip">
                 <img src="front.jpg" class="active" onclick="changeImage('front.jpg', this)">
                 <img src="left.jpg" onclick="changeImage('left.jpg', this)">
@@ -256,14 +190,12 @@
             <div class="badge" style="margin-bottom: 1rem; display: inline-block;">AI Generated</div>
             <h2>Interactive 3D Avatar</h2>
             <h4>Photorealistic Digital Twin</h4>
-            
             <ul class="feature-list">
                 <li>Fully interactive 360-degree rotation viewer.</li>
                 <li>Generated using advanced AI Image-to-3D pipeline.</li>
                 <li>High-resolution textures mapping my actual features.</li>
                 <li>Optimized for web and mobile responsiveness.</li>
             </ul>
-
             <div class="skills-highlight">
                 <h3>Technology Stack Used</h3>
                 <div class="skills-grid">
@@ -278,22 +210,16 @@
         </div>
     </section>
 
-    <!-- Holographic Skill Map Section (10 Skills) -->
+    <!-- Holographic Skill Map Section -->
     <section id="holographic-showcase">
         <h2>Interactive Skill Map</h2>
         <p style="text-align: center; margin-bottom: 2rem;">Tap the glowing nodes on the image to explore my technical expertise.</p>
         
         <div class="hologram-wrapper">
             <div class="skill-map-container">
-                <!-- ⚠️ YOUR HOLOGRAM IMAGE MUST BE NAMED hologram.png ⚠️ -->
                 <img src="hologram.png" alt="Holographic Skill Map">
+                <div class="skill-hub">SKILLS<span>TAP TO EXPLORE</span></div>
                 
-                <div class="skill-hub">
-                    SKILLS
-                    <span>TAP TO EXPLORE</span>
-                </div>
-
-                <!-- 10 Skills Nodes -->
                 <div class="skill-node node-1" onclick="openSkill('ai')"><i class="fas fa-brain"></i><span>AI & ML</span></div>
                 <div class="skill-node node-2" onclick="openSkill('cloud')"><i class="fas fa-cloud"></i><span>Cloud</span></div>
                 <div class="skill-node node-3" onclick="openSkill('java')"><i class="fab fa-java"></i><span>Java</span></div>
@@ -308,14 +234,14 @@
         </div>
     </section>
 
-    <!-- Experience Section (Updated with 24-week & AWS/GCP) -->
+    <!-- Experience & Education Section -->
     <section id="experience">
         <h2>Experience & Education</h2>
         
         <div class="card">
-            <h3>BSc in Computer Science</h3>
+            <h3>B.Sc (Hons) Computer Science</h3>
             <h4>JSPM University | 2024 - 2027</h4>
-            <p>Currently pursuing my degree in Computer Science with a focus on Artificial Intelligence and cloud technology. Maintaining a strong academic record while working on practical projects.</p>
+            <p>Current GPA: 8.8. Focusing on Artificial Intelligence, cloud technology, and software engineering.</p>
         </div>
 
         <div class="card">
@@ -327,6 +253,48 @@
                 <li>Implemented modern IoT and AI/ML principles to improve projects and models.</li>
                 <li>Worked extensively on AWS and Google Cloud Platform (GCP).</li>
             </ul>
+        </div>
+
+        <div class="card">
+            <h3>12th Grade (Science)</h3>
+            <h4>Vidya Public School | 76.5%</h4>
+        </div>
+
+        <div class="card">
+            <h3>10th Grade</h3>
+            <h4>Sunbeam World School | 78.5%</h4>
+        </div>
+    </section>
+
+    <!-- Technical Skills & Languages Section -->
+    <section id="skills-list">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid" style="justify-content: center; margin-bottom: 3rem;">
+            <span class="skill-tag">DBMS</span>
+            <span class="skill-tag">Data Structures using C</span>
+            <span class="skill-tag">Cloud Computing</span>
+            <span class="skill-tag">Ethical Hacking</span>
+            <span class="skill-tag">RDBMS</span>
+            <span class="skill-tag">C Programming</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">IoT</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Compiler Design</span>
+            <span class="skill-tag">AI</span>
+            <span class="skill-tag">Software Engineering</span>
+            <span class="skill-tag">UML</span>
+            <span class="skill-tag">Excel</span>
+            <span class="skill-tag">Data Communication Network</span>
+            <span class="skill-tag">Machine Learning</span>
+        </div>
+
+        <h2>Languages</h2>
+        <div class="skills-grid" style="justify-content: center;">
+            <span class="skill-tag">Hindi</span>
+            <span class="skill-tag">English</span>
+            <span class="skill-tag">German</span>
+            <span class="skill-tag">Russian</span>
         </div>
     </section>
 
@@ -345,19 +313,21 @@
             <h4>IIT Kharagpur | Issued by NPTEL</h4>
             <p>Certification focusing on cybersecurity, penetration testing, and vulnerability assessment methodologies.</p>
         </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://www.credly.com/users/dhruv-pandey.07324bae" target="_blank" class="btn btn-primary">Verify All Credentials on Credly →</a>
+        </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
         <h2>Featured Projects</h2>
-
         <div class="card">
             <h3>Flash Flood Prediction System</h3>
             <h4>Python, Machine Learning, IoT</h4>
             <p>A predictive system for hilly regions using multi-source data. It integrates rainfall data, soil moisture sensors, and historical landslide inventories to generate hyper-local forecasts.</p>
             <a href="https://github.com/G1pro108" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">View on GitHub →</a>
         </div>
-
         <div class="card">
             <h3>Interactive 3D Portfolio</h3>
             <h4>AI Generation, HTML, CSS, GitHub Pages</h4>
@@ -371,7 +341,6 @@
         <p style="font-size: 1.1rem; color: var(--text-main);">Phone: +91 9372452151</p>
         <p>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll get back to you!</p>
         <a href="mailto:pandeydhruv360@gmail.com" class="btn btn-primary">Email Me</a>
-        
         <div class="social-links">
             <a href="https://www.linkedin.com/in/dhruv-pandey-81981230a" target="_blank">LinkedIn</a>
             <a href="https://github.com/G1pro108" target="_blank">GitHub</a>
@@ -388,20 +357,20 @@
         </div>
     </div>
 
-    <!-- JavaScript for Modal and 360 Viewer -->
+    <!-- JavaScript -->
     <script>
-        // --- 1. Skill Modal Logic ---
+        // 1. Skill Modal Logic (10 Skills)
         const skillData = {
-            ai: { title: "AI & Machine Learning", desc: "Proficient in building predictive models, data analysis, and implementing ML algorithms using Python. Experienced with frameworks like TensorFlow and PyTorch." },
-            cloud: { title: "Cloud Services (AWS/Azure/GCP)", desc: "Experienced in AWS, Azure, and GCP. Skilled in designing scalable cloud architectures, deployment pipelines, and cloud-native solutions." },
-            java: { title: "Java", desc: "Strong object-oriented programming foundation in Java. Experienced in building robust backend systems and enterprise applications." },
+            ai: { title: "AI & Machine Learning", desc: "Proficient in building predictive models, data analysis, and implementing ML algorithms using Python." },
+            cloud: { title: "Cloud Services (AWS/Azure/GCP)", desc: "Experienced in AWS, Azure, and GCP. Skilled in designing scalable cloud architectures and deployment pipelines." },
+            java: { title: "Java", desc: "Strong object-oriented programming foundation in Java for robust backend systems and enterprise applications." },
             python: { title: "Python", desc: "Advanced Python programming for backend development, automation scripts, data science, and AI model training." },
-            cpp: { title: "C & C++", desc: "Deep understanding of low-level memory management, data structures, and algorithms using C and C++. Ideal for performance-critical applications." },
-            iot: { title: "IoT & DBMS", desc: "Skilled in connecting hardware devices to the internet, sensor data processing, and managing databases (SQL & NoSQL) for IoT ecosystems." },
+            cpp: { title: "C & C++", desc: "Deep understanding of low-level memory management, data structures, and algorithms using C and C++." },
+            iot: { title: "IoT & DBMS", desc: "Skilled in connecting hardware devices to the internet, sensor data processing, and managing databases (SQL & NoSQL)." },
             docker: { title: "Docker Containerization", desc: "Experienced in containerizing applications using Docker for consistent development, testing, and deployment environments." },
-            git: { title: "Git & GitHub", desc: "Proficient in version control using Git. Experienced in collaborative workflows, branching strategies, and hosting projects on GitHub Pages." },
-            uiux: { title: "UI/UX Design", desc: "Skilled in designing intuitive, user-centric interfaces. Experienced in wireframing, prototyping, and implementing responsive web designs." },
-            hacking: { title: "Ethical Hacking", desc: "Knowledgeable in cybersecurity principles, vulnerability assessment, and penetration testing methodologies to secure systems and networks." }
+            git: { title: "Git & GitHub", desc: "Proficient in version control using Git. Experienced in collaborative workflows and hosting projects on GitHub Pages." },
+            uiux: { title: "UI/UX Design", desc: "Skilled in designing intuitive, user-centric interfaces. Experienced in wireframing, prototyping, and responsive web designs." },
+            hacking: { title: "Ethical Hacking", desc: "Knowledgeable in cybersecurity principles, vulnerability assessment, and penetration testing methodologies." }
         };
 
         function openSkill(key) {
@@ -410,25 +379,14 @@
             document.getElementById('modalDesc').innerText = data.desc;
             document.getElementById('skillModal').classList.add('show');
         }
+        function closeSkill() { document.getElementById('skillModal').classList.remove('show'); }
+        window.onclick = function(event) { if (event.target === document.getElementById('skillModal')) closeSkill(); }
 
-        function closeSkill() {
-            document.getElementById('skillModal').classList.remove('show');
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('skillModal');
-            if (event.target === modal) {
-                closeSkill();
-            }
-        }
-
-        // --- 2. Amazon-Style 360 Viewer Logic ---
+        // 2. 360 Viewer Logic
         const container = document.getElementById('drag-container');
         const mainImage = document.getElementById('main-display');
         const images = ['front.jpg', 'left.jpg', 'back.jpg', 'right.jpg'];
-        let currentIndex = 0;
-        let isDragging = false;
-        let startX = 0;
+        let currentIndex = 0, isDragging = false, startX = 0;
 
         function changeImage(src, thumbElement) {
             mainImage.src = src;
@@ -436,29 +394,25 @@
             document.querySelectorAll('.thumbnail-strip img').forEach(img => img.classList.remove('active'));
             thumbElement.classList.add('active');
         }
-
         container.addEventListener('mousedown', (e) => { isDragging = true; startX = e.clientX; });
         window.addEventListener('mouseup', () => { isDragging = false; });
         container.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
             const diffX = e.clientX - startX;
             if (Math.abs(diffX) > 40) {
-                if (diffX > 0) { currentIndex = (currentIndex - 1 + images.length) % images.length; } 
-                else { currentIndex = (currentIndex + 1) % images.length; }
+                currentIndex = (diffX > 0) ? (currentIndex - 1 + images.length) % images.length : (currentIndex + 1) % images.length;
                 mainImage.src = images[currentIndex];
                 startX = e.clientX;
                 document.querySelectorAll('.thumbnail-strip img').forEach((img, i) => { img.classList.toggle('active', i === currentIndex); });
             }
         });
-
         container.addEventListener('touchstart', (e) => { isDragging = true; startX = e.touches[0].clientX; });
         container.addEventListener('touchend', () => { isDragging = false; });
         container.addEventListener('touchmove', (e) => {
             if (!isDragging) return;
             const diffX = e.touches[0].clientX - startX;
             if (Math.abs(diffX) > 30) {
-                if (diffX > 0) { currentIndex = (currentIndex - 1 + images.length) % images.length; } 
-                else { currentIndex = (currentIndex + 1) % images.length; }
+                currentIndex = (diffX > 0) ? (currentIndex - 1 + images.length) % images.length : (currentIndex + 1) % images.length;
                 mainImage.src = images[currentIndex];
                 startX = e.touches[0].clientX;
                 document.querySelectorAll('.thumbnail-strip img').forEach((img, i) => { img.classList.toggle('active', i === currentIndex); });
@@ -467,5 +421,3 @@
     </script>
 </body>
 </html>
-
-
