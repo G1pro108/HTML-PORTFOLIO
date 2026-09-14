@@ -64,38 +64,31 @@
         
         /* Left: Interactive Image Gallery */
         .gallery-container { display: flex; flex-direction: column; gap: 1rem; }
-         /* 1. CHANGE THIS ONE */
-                  .main-image-wrapper { 
+        
+        /* FIXED CSS FOR FULL BODY VIEW */
+        .main-image-wrapper { 
             position: relative; 
             background: #000; 
             border-radius: 16px; 
             overflow: hidden; 
             cursor: grab; 
-            height: 600px; 
+            height: 600px; /* Forces a tall box to fit the full body */
             border: 1px solid rgba(255,255,255,0.1); 
         }
-
         .main-image-wrapper:active { cursor: grabbing; }
-
         .main-image-wrapper img { 
             width: 100%; 
             height: 100%; 
-            object-fit: contain; 
-            object-position: center top; 
+            object-fit: contain; /* Shows the whole image without cropping */
+            object-position: center top; /* Anchors the image to the top so the face is visible */
             transition: opacity 0.1s; 
             pointer-events: none; 
         }
-
-        /* 2. LEAVE THIS ONE ALONE */
-        .main-image-wrapper:active { cursor: grabbing; }
-
-        /* 3. CHANGE THIS ONE */
-        .main-image-wrapper img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.1s; pointer-events: none; }
         
         .drag-hint { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; color: white; pointer-events: none; display: flex; align-items: center; gap: 8px; }
         
         .thumbnail-strip { display: flex; gap: 10px; justify-content: center; }
-        .thumbnail-strip img { width: 70px; height: 70px; border-radius: 8px; cursor: pointer; opacity: 0.5; transition: all 0.3s; border: 2px solid transparent; object-fit: cover; }
+        .thumbnail-strip img { width: 70px; height: 70px; border-radius: 8px; cursor: pointer; opacity: 0.5; transition: all 0.3s; border: 2px solid transparent; object-fit: contain; }
         .thumbnail-strip img:hover, .thumbnail-strip img.active { opacity: 1; border-color: var(--accent); }
 
         /* Right: Sticky Sidebar (Features & Skills) */
@@ -134,6 +127,7 @@
             #product-viewer { grid-template-columns: 1fr; padding: 1.5rem; gap: 2rem; }
             .product-sidebar { position: static; }
             .nav-links { display: none; }
+            .main-image-wrapper { height: 450px; } /* Smaller height on mobile */
         }
     </style>
 </head>
@@ -163,7 +157,6 @@
         </div>
         
         <div class="profile-img-container">
-            <!-- Make sure profile.png is uploaded to your repo -->
             <img src="profile.png" alt="Dhruv Pandey">
         </div>
     </section>
@@ -173,7 +166,6 @@
         <!-- Left Side: Interactive Gallery -->
         <div class="gallery-container">
             <div class="main-image-wrapper" id="drag-container">
-                <!-- Default front view -->
                 <img src="front.jpg" id="main-display" alt="3D Avatar 360 View">
                 <div class="drag-hint">
                     <span>↔</span> Drag to rotate 360°
